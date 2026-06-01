@@ -1,10 +1,466 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Meu primeiro site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Geek | Marketing Digital, Conteúdo e Projetos Online</title>
+  <meta name="description" content="Portfólio de marketing digital, criação de conteúdo, SEO, copywriting, projetos online e trabalhos como Livros.pro.br, Seu Filme Favorito e Lucas Geek." />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d0d14;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, rgba(132, 0, 255, 0.35), transparent 35%),
+        linear-gradient(135deg, #10101c, #08080e);
+      padding: 40px 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #c9b6ff;
+      font-weight: bold;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #9f7cff;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #d7d7e8;
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #8b5cf6;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .photo-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .photo-card img {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 4px solid rgba(255, 255, 255, 0.12);
+      background: #191927;
+    }
+
+    .photo-card small {
+      display: block;
+      color: #aaaac0;
+      margin-top: 14px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: #bcbcd2;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 46px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #151522;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 28px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(159, 124, 255, 0.5);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #c7c7d8;
+    }
+
+    .highlight {
+      color: #9f7cff;
+      font-weight: bold;
+    }
+
+    .projects {
+      background: #10101a;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 230px;
+    }
+
+    .badge {
+      display: inline-block;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.16);
+      color: #cbbdff;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      background: #151522;
+      border-left: 4px solid #8b5cf6;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+      text-align: center;
+      border-radius: 34px;
+      padding: 54px 28px;
+    }
+
+    .cta h2 {
+      font-size: clamp(30px, 5vw, 46px);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #eeeaff;
+      font-size: 18px;
+      max-width: 720px;
+      margin: 0 auto 26px;
+    }
+
+    footer {
+      padding: 34px 0;
+      text-align: center;
+      color: #aaaac0;
+      background: #09090f;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Bem-vindo ao meu site!</h1>
-  <p>Esse é meu primeiro conteúdo criado no GitHub.</p>
+  <header>
+    <div class="container hero">
+      <div>
+        <span class="tag">Marketing Digital • Conteúdo • Projetos Online</span>
+        <h1>Eu ajudo marcas e projetos a crescerem com <span>conteúdo estratégico</span>.</h1>
+        <p>
+          Sou criador de conteúdo e profissional de marketing com experiência em sites,
+          SEO, copywriting, redes sociais, conteúdo para YouTube, storytelling e crescimento digital.
+        </p>
+        <div class="buttons">
+          <a href="#projetos" class="btn btn-primary">Ver meus projetos</a>
+          <a href="#contato" class="btn btn-secondary">Falar comigo</a>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="minha-foto.jpg" alt="Foto de Lucas Geek" />
+        <small>Troque o arquivo <strong>minha-foto.jpg</strong> pela sua foto no GitHub.</small>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre mim</h2>
+      <p class="section-subtitle">
+        Trabalho com criação de conteúdo, marketing digital e projetos online. Minha especialidade é transformar ideias em páginas, vídeos, textos, campanhas e estratégias que chamam atenção e geram resultado.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Conteúdo que prende atenção</h3>
+          <p>Criação de títulos, chamadas, roteiros, copies e estruturas pensadas para aumentar clique, retenção e interesse do público.</p>
+        </div>
+
+        <div class="card">
+          <h3>Marketing com visão prática</h3>
+          <p>Experiência com posicionamento, tráfego, SEO, redes sociais, funis simples e crescimento de projetos digitais.</p>
+        </div>
+
+        <div class="card">
+          <h3>Projetos online reais</h3>
+          <p>Atuação em iniciativas como <span class="highlight">livros.pro.br</span>, <span class="highlight">Seu Filme Favorito</span>, <span class="highlight">Lucas Geek</span> e outros projetos digitais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="container">
+      <h2 class="section-title">Minhas habilidades</h2>
+      <p class="section-subtitle">
+        Um conjunto de habilidades voltadas para crescimento online, conteúdo de impacto e construção de presença digital.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>SEO e artigos</h3>
+          <p>Planejamento e criação de conteúdos otimizados para buscadores, com foco em clareza, autoridade e intenção de busca.</p>
+        </div>
+
+        <div class="card">
+          <h3>Copywriting</h3>
+          <p>Criação de chamadas fortes, títulos chamativos, descrições, textos comerciais e narrativas para gerar curiosidade.</p>
+        </div>
+
+        <div class="card">
+          <h3>YouTube e redes sociais</h3>
+          <p>Ideias de vídeos, roteiros, ganchos, análise de CTR, retenção, thumbnails, storytelling e posicionamento de canais.</p>
+        </div>
+
+        <div class="card">
+          <h3>Marketing de conteúdo</h3>
+          <p>Estratégias para transformar temas em posts, artigos, vídeos curtos, vídeos longos e campanhas digitais.</p>
+        </div>
+
+        <div class="card">
+          <h3>Branding pessoal</h3>
+          <p>Construção de identidade para projetos, nomes, canais, páginas e marcas digitais com foco em reconhecimento.</p>
+        </div>
+
+        <div class="card">
+          <h3>Projetos web</h3>
+          <p>Criação de páginas simples, portfólios, sites institucionais, páginas de divulgação e presença online no GitHub Pages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos" class="projects">
+    <div class="container">
+      <h2 class="section-title">Trabalhos e projetos online</h2>
+      <p class="section-subtitle">
+        Alguns projetos e frentes de conteúdo que representam minha experiência prática no ambiente digital.
+      </p>
+
+      <div class="grid">
+        <div class="card project-card">
+          <div>
+            <span class="badge">Site / Conteúdo</span>
+            <h3>livros.pro.br</h3>
+            <p>Projeto voltado para conteúdo online, estruturação de páginas, publicação digital e desenvolvimento de presença na internet.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div>
+            <span class="badge">Entretenimento</span>
+            <h3>Seu Filme Favorito</h3>
+            <p>Projeto com foco em filmes, séries, curiosidades, chamadas de alto impacto e conteúdo para atrair audiência apaixonada por entretenimento.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div>
+            <span class="badge">Geek / YouTube</span>
+            <h3>Lucas Geek</h3>
+            <p>Marca voltada para cultura geek, animes, games, cinema, séries, roteiros, thumbnails, análise de trailers e conteúdo digital.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div>
+            <span class="badge">Marketing</span>
+            <h3>Criação de copies</h3>
+            <p>Desenvolvimento de frases de impacto, ganchos, chamadas para vídeos, títulos chamativos e textos com foco em clique e retenção.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div>
+            <span class="badge">Conteúdo</span>
+            <h3>Roteiros para vídeos</h3>
+            <p>Criação de roteiros para YouTube, Shorts, Reels e TikTok com narrativa rápida, curiosidade, emoção e final forte.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div>
+            <span class="badge">Estratégia</span>
+            <h3>Crescimento digital</h3>
+            <p>Estudo de nichos, análise de concorrência, ideias de conteúdo, posicionamento e caminhos para monetização online.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="container">
+      <h2 class="section-title">Minha experiência</h2>
+      <p class="section-subtitle">
+        Experiência construída com prática, testes, criação de conteúdo e visão de mercado digital.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Criação de presença digital</h3>
+          <p>Construção de páginas, marcas, canais e projetos com foco em atrair público e fortalecer autoridade online.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Conteúdo para engajamento</h3>
+          <p>Desenvolvimento de ideias, títulos, roteiros e chamadas para aumentar curiosidade, retenção e cliques.</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Marketing e monetização</h3>
+          <p>Estudo de tráfego, nichos, plataformas digitais, conteúdo pago, crescimento orgânico e oportunidades de renda online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <div class="cta">
+        <h2>Vamos criar algo forte para a internet?</h2>
+        <p>
+          Se você precisa de estratégia, conteúdo, copy, roteiro, site, posicionamento ou ideias para crescer online, estou pronto para ajudar.
+        </p>
+        <a href="mailto:seuemail@email.com" class="btn btn-secondary">Entrar em contato</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Lucas Geek. Marketing Digital, Conteúdo e Projetos Online.</p>
+    </div>
+  </footer>
 </body>
 </html>
